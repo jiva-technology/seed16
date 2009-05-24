@@ -1,0 +1,7 @@
+# Seed 16 
+
+Seed 16 is a web app for managing, and visualizing, invitations to events which follow the pattern described by Gavin Bell in his blog post: [seed16 a new model for conferences][1].
+
+[1]: http://bit.ly/seed16
+
+The code has been written by Peter Ferne and is released under an MIT Licence.
