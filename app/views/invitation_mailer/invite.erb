@@ -1,0 +1,17 @@
+Hi <%= @recipient.name %>
+
+I would like to invite you to <%= @event.title %>. 
+
+For details of the event see <%= @event.website %>.
+
+Please accept the invitation by following this link <%= @accept_url %>. 
+
+<% if @further > 0 %>
+You will then be able to invite <%= @further %> further people.
+<% end %>
+
+If you have to decline the invitation follow this link <%= @decline_url %>.
+
+All the best
+--
+<%= @sender.name %>

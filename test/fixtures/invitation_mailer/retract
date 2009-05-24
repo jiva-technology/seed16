@@ -1,0 +1,3 @@
+InvitationMailer#retract
+
+Find me in app/views/invitation_mailer/retract.erb

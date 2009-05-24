@@ -1,0 +1,3 @@
+InvitationMailer#decline
+
+Find me in app/views/invitation_mailer/decline.erb

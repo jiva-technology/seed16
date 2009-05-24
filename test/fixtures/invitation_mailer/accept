@@ -1,0 +1,3 @@
+InvitationMailer#accept
+
+Find me in app/views/invitation_mailer/accept.erb
