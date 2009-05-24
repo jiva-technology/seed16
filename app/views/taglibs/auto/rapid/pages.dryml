@@ -1,0 +1,415 @@
+<!-- AUTOMATICALLY GENERATED FILE - DO NOT EDIT -->
+
+<!-- ====== Main Navigation ====== -->
+
+<def tag="main-nav">
+  <navigation class="main-nav" merge-attrs param="default">
+    <nav-item href="#{base_url}/">Home</nav-item>
+    <nav-item with="&Event">Events</nav-item>
+    <nav-item with="&Invitation">Invitations</nav-item>
+  </navigation>
+</def>
+
+
+
+  
+<!-- ====== Event Pages ====== -->
+
+
+<def tag="index-page" for="Event">
+  <page merge title="Events">
+    <body: class="index-page event" param/>
+    
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">Events</h2>
+
+        <p param="count" if>There <count prefix="are"/></p>
+      </header>
+      
+      <section param="content-body">
+
+        <a action="new" to="&model" param="new-link"/>      
+
+        <page-nav param="top-page-nav"/>
+
+        <collection param/>
+
+        <page-nav param="bottom-page-nav"/>
+
+
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="new-page" for="Event">
+  <page merge title="New Event">
+    <body: class="new-page event" param/>
+    
+    <content: param>
+      <section param="content-header">
+        <h2 param="heading">New Event</h2>
+      </section>
+      
+      <section param="content-body">
+        <form param>
+          <submit: label="Create Event"/>
+        </form>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="show-page" for="Event">
+  <page merge title="Event">
+
+    <body: class="show-page event" param/>
+
+    <content: param>
+          <header param="content-header">
+            <h2 param="heading"><name/></h2>
+
+            <record-flags fields="" param/>
+
+            <a action="edit" if="&can_edit?" param="edit-link">Edit Event</a>
+          </header>
+    
+          <section param="content-body">
+            <view:description param="description"/>
+            <field-list fields="website, organizer" param/>
+          </section>
+    </content:>
+    
+  </page>
+</def>
+
+
+<def tag="edit-page" for="Event">
+  <page merge title="Edit Event">
+
+    <body: class="edit-page event" param/>
+
+    <content:>
+      <section param="content-header">
+        <h2 param="heading">Edit <type-name/></h2>
+        <delete-button label="Remove This Event" param/>
+      </section>
+
+      <section param="content-body">
+        <form param/>
+      </section>
+    </content:>
+    
+  </page>
+</def>
+
+
+
+
+  
+<!-- ====== Invitation Pages ====== -->
+
+
+<def tag="index-page" for="Invitation">
+  <page merge title="Invitations">
+    <body: class="index-page invitation" param/>
+    
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">Invitations</h2>
+
+        <p param="count" if>There <count prefix="are"/></p>
+      </header>
+      
+      <section param="content-body">
+
+        <a action="new" to="&model" param="new-link"/>      
+
+        <page-nav param="top-page-nav"/>
+
+        <collection param/>
+
+        <page-nav param="bottom-page-nav"/>
+
+
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="new-page" for="Invitation">
+  <page merge title="New Invitation">
+    <body: class="new-page invitation" param/>
+    
+    <content: param>
+      <section param="content-header">
+        <h2 param="heading">New Invitation</h2>
+      </section>
+      
+      <section param="content-body">
+        <form param>
+          <submit: label="Create Invitation"/>
+        </form>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="show-page" for="Invitation">
+  <page merge title="Invitation">
+
+    <body: class="show-page invitation" param/>
+
+    <content: param>
+          <header param="content-header">
+            <h2 param="heading"><name/></h2>
+
+            <record-flags fields="" param/>
+
+            <a action="edit" if="&can_edit?" param="edit-link">Edit Invitation</a>
+          </header>
+    
+          <section param="content-body">
+            <field-list fields="event, recipient, sender" param/>
+          </section>
+    </content:>
+    
+  </page>
+</def>
+
+
+<def tag="edit-page" for="Invitation">
+  <page merge title="Edit Invitation">
+
+    <body: class="edit-page invitation" param/>
+
+    <content:>
+      <section param="content-header">
+        <h2 param="heading">Edit <type-name/></h2>
+        <delete-button label="Remove This Invitation" param/>
+      </section>
+
+      <section param="content-body">
+        <form param/>
+      </section>
+    </content:>
+    
+  </page>
+</def>
+
+
+<def tag="invite-page" polymorphic/>
+<def tag="invite-page" for="Invitation">
+
+  <page title="Invite" merge>
+
+    <body: class="lifecycle-start-page invite-page" param/>
+
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">Invite</h2>
+      </header>
+
+      <section param="content-body">
+        <invite-form param="form"/>
+      </section>
+    </content:>
+
+  </page>
+</def>
+
+<def tag="retract-page" polymorphic/>
+<def tag="retract-page" for="Invitation">
+  <page title="Retract" merge>
+    
+    <body: class="lifecycle-transition-page retract-page" param/>
+    
+    <content:>
+      <header param="content-header">
+        <h2 param="heading">Retract</h2>
+      </header>
+      
+      <section param="content-body">
+        <retract-form param="form"/>
+      </section>
+    </content:>
+    
+  </page>
+</def>
+
+<def tag="accept-page" polymorphic/>
+<def tag="accept-page" for="Invitation">
+  <page title="Accept" merge>
+    
+    <body: class="lifecycle-transition-page accept-page" param/>
+    
+    <content:>
+      <header param="content-header">
+        <h2 param="heading">Accept</h2>
+      </header>
+      
+      <section param="content-body">
+        <accept-form param="form"/>
+      </section>
+    </content:>
+    
+  </page>
+</def>
+
+<def tag="decline-page" polymorphic/>
+<def tag="decline-page" for="Invitation">
+  <page title="Decline" merge>
+    
+    <body: class="lifecycle-transition-page decline-page" param/>
+    
+    <content:>
+      <header param="content-header">
+        <h2 param="heading">Decline</h2>
+      </header>
+      
+      <section param="content-body">
+        <decline-form param="form"/>
+      </section>
+    </content:>
+    
+  </page>
+</def>
+
+
+  
+<!-- ====== User Pages ====== -->
+
+
+<def tag="index-page" for="User">
+  <page merge title="Users">
+    <body: class="index-page user" param/>
+    
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">Users</h2>
+
+        <p param="count" if>There <count prefix="are"/></p>
+      </header>
+      
+      <section param="content-body">
+
+        <page-nav param="top-page-nav"/>
+
+        <collection param/>
+
+        <page-nav param="bottom-page-nav"/>
+
+
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="new-page" for="User">
+  <page merge title="New User">
+    <body: class="new-page user" param/>
+    
+    <content: param>
+      <section param="content-header">
+        <h2 param="heading">New User</h2>
+      </section>
+      
+      <section param="content-body">
+        <form param>
+          <submit: label="Create User"/>
+        </form>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="show-page" for="User">
+  <page merge title="User">
+
+    <body: class="show-page user" param/>
+
+    <content: param>
+          <header param="content-header">
+            <h2 param="heading"><name/></h2>
+
+            <record-flags fields="administrator" param/>
+
+            <a action="edit" if="&can_edit?" param="edit-link">Edit User</a>
+          </header>
+    
+          <section param="content-body">
+            <field-list fields="email_address" param/>
+          </section>
+    </content:>
+    
+  </page>
+</def>
+
+
+<def tag="edit-page" for="User">
+  <page merge title="Edit User">
+
+    <body: class="edit-page user" param/>
+
+    <content:>
+      <section param="content-header">
+        <h2 param="heading">Edit <type-name/></h2>
+        <delete-button label="Remove This User" param/>
+      </section>
+
+      <section param="content-body">
+        <form param/>
+      </section>
+    </content:>
+    
+  </page>
+</def>
+
+
+<def tag="signup-page" polymorphic/>
+<def tag="signup-page" for="User">
+
+  <page title="Signup" merge>
+
+    <body: class="lifecycle-start-page signup-page" param/>
+
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">Signup</h2>
+      </header>
+
+      <section param="content-body">
+        <signup-form param="form"/>
+      </section>
+    </content:>
+
+  </page>
+</def>
+
+<def tag="reset-password-page" polymorphic/>
+<def tag="reset-password-page" for="User">
+  <page title="Reset Password" merge>
+    
+    <body: class="lifecycle-transition-page reset-password-page" param/>
+    
+    <content:>
+      <header param="content-header">
+        <h2 param="heading">Reset Password</h2>
+      </header>
+      
+      <section param="content-body">
+        <reset-password-form param="form"/>
+      </section>
+    </content:>
+    
+  </page>
+</def>
+
+

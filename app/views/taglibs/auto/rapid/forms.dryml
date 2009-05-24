@@ -1,0 +1,113 @@
+<!-- AUTOMATICALLY GENERATED FILE - DO NOT EDIT -->
+
+<def tag="form" for="Event">
+  <form merge param="default">
+    <error-messages param/>
+    <field-list fields="title, description, website, organizer" param/>
+    <div param="actions">
+      <submit label="Save" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+
+
+
+<def tag="form" for="Invitation">
+  <form merge param="default">
+    <error-messages param/>
+    <field-list fields="event, recipient, sender" param/>
+    <div param="actions">
+      <submit label="Save" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+
+<def tag="invite-form" polymorphic/>
+<def tag="invite-form" for="Invitation">
+  <form lifecycle="invite">
+    <error-messages param/>
+    <field-list fields="recipient" param/>
+    <div param="actions">
+      <submit label="Invite" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+
+<def tag="retract-form" polymorphic/>
+<def tag="retract-form" for="Invitation">
+  <form lifecycle="retract">
+    <error-messages param/>
+    <input type="hidden" name="key" value="&this.lifecycle.provided_key" if="&this.lifecycle.provided_key"/>
+    <field-list fields="" param/>
+    <div param="actions">
+      <submit label="Retract" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+<def tag="accept-form" polymorphic/>
+<def tag="accept-form" for="Invitation">
+  <form lifecycle="accept">
+    <error-messages param/>
+    <input type="hidden" name="key" value="&this.lifecycle.provided_key" if="&this.lifecycle.provided_key"/>
+    <field-list fields="" param/>
+    <div param="actions">
+      <submit label="Accept" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+<def tag="decline-form" polymorphic/>
+<def tag="decline-form" for="Invitation">
+  <form lifecycle="decline">
+    <error-messages param/>
+    <input type="hidden" name="key" value="&this.lifecycle.provided_key" if="&this.lifecycle.provided_key"/>
+    <field-list fields="" param/>
+    <div param="actions">
+      <submit label="Decline" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+<def tag="decline-form" polymorphic/>
+<def tag="decline-form" for="Invitation">
+  <form lifecycle="decline">
+    <error-messages param/>
+    <input type="hidden" name="key" value="&this.lifecycle.provided_key" if="&this.lifecycle.provided_key"/>
+    <field-list fields="" param/>
+    <div param="actions">
+      <submit label="Decline" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+
+<def tag="form" for="User">
+  <form merge param="default">
+    <error-messages param/>
+    <field-list fields="name, email_address, administrator" param/>
+    <div param="actions">
+      <submit label="Save" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+
+<def tag="signup-form" polymorphic/>
+<def tag="signup-form" for="User">
+  <form lifecycle="signup">
+    <error-messages param/>
+    <field-list fields="name, email_address, password, password_confirmation" param/>
+    <div param="actions">
+      <submit label="Signup" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+
+<def tag="reset-password-form" polymorphic/>
+<def tag="reset-password-form" for="User">
+  <form lifecycle="reset_password">
+    <error-messages param/>
+    <input type="hidden" name="key" value="&this.lifecycle.provided_key" if="&this.lifecycle.provided_key"/>
+    <field-list fields="password, password_confirmation" param/>
+    <div param="actions">
+      <submit label="Reset Password" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+

@@ -1,0 +1,2051 @@
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (74.9ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (3.2ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to HoboMigration1 (20090523171556)
+  [4;35;1mSQL (0.1ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "description" text, "website" varchar(255), "created_at" datetime, "updated_at" datetime, "organizer_id" integer) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE TABLE "invitations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime, "event_id" integer, "sender_id" integer, "recipient_id" integer, "state" varchar(255), "key_timestamp" datetime) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "crypted_password" varchar(40), "salt" varchar(40), "remember_token" varchar(255), "remember_token_expires_at" datetime, "name" varchar(255), "email_address" varchar(255), "administrator" boolean DEFAULT 'f', "created_at" datetime, "updated_at" datetime, "state" varchar(255) DEFAULT 'active', "key_timestamp" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090523171556')[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("events")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("invitations")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (25.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+/!\ FAILSAFE /!\  Sun May 24 16:09:11 +0100 2009
+  Status: 500 Internal Server Error
+  You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.class_name
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/reflection.rb:316:in `derive_class_name'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/reflection.rb:112:in `class_name'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/reflection.rb:156:in `klass_without_create_polymorphic_class'
+    /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/lib/active_record/association_reflection.rb:15:in `klass'
+    /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/lib/hobo/model.rb:346:in `reverse_reflection'
+    /Library/Ruby/Gems/1.8/gems/hobosupport-0.8.7/lib/hobo_support.rb:25:in `find'
+    /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/lib/hobo/model.rb:344:in `each'
+    /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/lib/hobo/model.rb:344:in `find'
+    /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/lib/hobo/model.rb:344:in `reverse_reflection'
+    /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/lib/hobo/model.rb:182:in `dependent_on'
+    /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/lib/hobo/model.rb:181:in `select'
+    /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/lib/hobo/model.rb:181:in `dependent_on'
+    rapid/pages:88:in `run_one'
+    /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/lib/hobo/dryml/dryml_generator.rb:138:in `each_controller'
+    /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/lib/hobo/dryml/dryml_generator.rb:136:in `each'
+    /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/lib/hobo/dryml/dryml_generator.rb:136:in `each_controller'
+    rapid/pages:14:in `run_one'
+    /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/lib/hobo/dryml/dryml_generator.rb:85:in `run_for_subsite'
+    /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/lib/hobo/dryml/dryml_generator.rb:84:in `each_pair'
+    /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/lib/hobo/dryml/dryml_generator.rb:84:in `run_for_subsite'
+    /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/lib/hobo/dryml/dryml_generator.rb:78:in `run'
+    /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/lib/hobo/dryml/dryml_generator.rb:78:in `each'
+    /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/lib/hobo/dryml/dryml_generator.rb:78:in `run'
+    /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/lib/hobo/dryml/dryml_generator.rb:50:in `run'
+    /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/lib/hobo/dryml/dryml_generator.rb:33:in `reload_application'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/reloader.rb:8:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/failsafe.rb:11:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:106:in `call'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/rails/rack/static.rb:31:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:46:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `each'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `call'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/rails/rack/log_tailer.rb:17:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/content_length.rb:13:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/chunked.rb:15:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/mongrel.rb:61:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:159:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `run'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/mongrel.rb:34:in `run'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/commands/server.rb:111
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    ./script/server:3
+  [4;36;1mSQL (0.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+/!\ FAILSAFE /!\  Sun May 24 16:11:12 +0100 2009
+  Status: 500 Internal Server Error
+  You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.class_name
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/reflection.rb:316:in `derive_class_name'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/reflection.rb:112:in `class_name'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.3.2/lib/active_record/reflection.rb:156:in `klass_without_create_polymorphic_class'
+    /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/lib/active_record/association_reflection.rb:15:in `klass'
+    /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/lib/hobo/model.rb:346:in `reverse_reflection'
+    /Library/Ruby/Gems/1.8/gems/hobosupport-0.8.7/lib/hobo_support.rb:25:in `find'
+    /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/lib/hobo/model.rb:344:in `each'
+    /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/lib/hobo/model.rb:344:in `find'
+    /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/lib/hobo/model.rb:344:in `reverse_reflection'
+    /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/lib/hobo/model.rb:182:in `dependent_on'
+    /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/lib/hobo/model.rb:181:in `select'
+    /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/lib/hobo/model.rb:181:in `dependent_on'
+    rapid/pages:88:in `run_one'
+    /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/lib/hobo/dryml/dryml_generator.rb:138:in `each_controller'
+    /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/lib/hobo/dryml/dryml_generator.rb:136:in `each'
+    /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/lib/hobo/dryml/dryml_generator.rb:136:in `each_controller'
+    rapid/pages:14:in `run_one'
+    /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/lib/hobo/dryml/dryml_generator.rb:85:in `run_for_subsite'
+    /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/lib/hobo/dryml/dryml_generator.rb:84:in `each_pair'
+    /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/lib/hobo/dryml/dryml_generator.rb:84:in `run_for_subsite'
+    /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/lib/hobo/dryml/dryml_generator.rb:78:in `run'
+    /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/lib/hobo/dryml/dryml_generator.rb:78:in `each'
+    /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/lib/hobo/dryml/dryml_generator.rb:78:in `run'
+    /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/lib/hobo/dryml/dryml_generator.rb:50:in `run'
+    /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/lib/hobo/dryml/dryml_generator.rb:33:in `reload_application'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/reloader.rb:8:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/failsafe.rb:11:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:106:in `call'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/rails/rack/static.rb:31:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:46:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `each'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `call'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/rails/rack/log_tailer.rb:17:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/content_length.rb:13:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/chunked.rb:15:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/mongrel.rb:61:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:159:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `run'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/mongrel.rb:34:in `run'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/commands/server.rb:111
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    ./script/server:3
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("invitations")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("invitations")[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to HoboMigration1 (20090523171556)
+Migrating to HoboMigration2 (20090524151559)
+  [4;35;1mSQL (0.1ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mCREATE TEMPORARY TABLE "altered_invitations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime, "event_id" integer, "sender_id" integer, "recipient_id" integer, "state" varchar(255), "key_timestamp" datetime) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("invitations")[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mDROP TABLE "invitations"[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE TABLE "invitations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime, "event_id" integer, "sender_id" integer, "recipient_id" integer, "state" varchar(255)) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("altered_invitations")[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mDROP TABLE "altered_invitations"[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE TEMPORARY TABLE "altered_invitations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime, "event_id" integer, "sender_id" integer, "recipient_id" integer, "state" varchar(255)) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("invitations")[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mDROP TABLE "invitations"[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mCREATE TABLE "invitations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime, "event_id" integer, "sender_id" integer, "recipient_id" integer) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("altered_invitations")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mDROP TABLE "altered_invitations"[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090524151559')[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("events")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("invitations")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 127.0.0.1 at 2009-05-24 16:16:20) [GET]
+Rendering front/index
+  DRYML: Compiled /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/taglibs/core.dryml in 0.01s
+  DRYML: Compiled /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/taglibs/rapid_core.dryml in 0.15s
+  DRYML: Compiled /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/taglibs/rapid_support.dryml in 0.01s
+  DRYML: Compiled /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/taglibs/rapid_document_tags.dryml in 0.09s
+  DRYML: Compiled /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/taglibs/rapid_pages.dryml in 0.18s
+  DRYML: Compiled /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/taglibs/rapid_editing.dryml in 0.14s
+  DRYML: Compiled /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/taglibs/rapid_forms.dryml in 0.19s
+  DRYML: Compiled /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/taglibs/rapid_navigation.dryml in 0.09s
+  DRYML: Compiled /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/taglibs/rapid_plus.dryml in 0.06s
+  DRYML: Compiled /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/taglibs/rapid_generics.dryml in 0.02s
+  DRYML: Compiled /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/taglibs/rapid_lifecycles.dryml in 0.01s
+  DRYML: Compiled /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/taglibs/rapid.dryml in 1.10s
+  DRYML: Compiled app/views/taglibs/auto/rapid/cards.dryml in 0.02s
+  DRYML: Compiled app/views/taglibs/auto/rapid/pages.dryml in 0.29s
+  DRYML: Compiled app/views/taglibs/auto/rapid/forms.dryml in 0.04s
+  DRYML: Compiled app/views/taglibs/themes/clean/clean.dryml in 0.01s
+  DRYML: Compiled app/views/taglibs/application.dryml in 1.46s
+  DRYML: Compiled app/views/front/index.dryml in 1.51s
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+Completed in 1729ms (View: 1661, DB: 0) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to HoboMigration1 (20090523171556)
+Migrating to HoboMigration2 (20090524151559)
+Migrating to HoboMigration3 (20090524151715)
+  [4;35;1mSQL (0.2ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mALTER TABLE "invitations" ADD "state" varchar(255)[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mALTER TABLE "invitations" ADD "key_timestamp" datetime[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090524151715')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("events")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("invitations")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 127.0.0.1 at 2009-05-24 16:17:23) [GET]
+Rendering front/index
+  DRYML: Compiled app/views/taglibs/auto/rapid/pages.dryml in 0.33s
+  DRYML: Compiled app/views/taglibs/auto/rapid/forms.dryml in 0.15s
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+Completed in 583ms (View: 579, DB: 1) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#index (for 127.0.0.1 at 2009-05-24 16:17:28) [GET]
+  [4;35;1mInvitation Load (0.2ms)[0m   [0mSELECT * FROM "invitations" LIMIT 30 OFFSET 0[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+Completed in 175ms (View: 170, DB: 1) | 200 OK [http://localhost/invitations]
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing EventsController#index (for 127.0.0.1 at 2009-05-24 16:17:31) [GET]
+  [4;36;1mEvent Load (0.2ms)[0m   [0;1mSELECT * FROM "events" LIMIT 30 OFFSET 0[0m
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+Completed in 212ms (View: 207, DB: 1) | 200 OK [http://localhost/events]
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 127.0.0.1 at 2009-05-24 16:17:33) [GET]
+Rendering front/index
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+Completed in 219ms (View: 215, DB: 1) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing UsersController#login (for 127.0.0.1 at 2009-05-24 16:17:35) [GET]
+  Parameters: {"action"=>"login", "controller"=>"users"}
+  DRYML: Compiled /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/taglibs/rapid_user_pages.dryml in 0.10s
+Completed in 399ms (View: 395, DB: 1) | 200 OK [http://localhost/login]
+  [4;35;1mSQL (0.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing UsersController#login (for 127.0.0.1 at 2009-05-24 16:17:57) [POST]
+  Parameters: {"page_path"=>"users/login", "action"=>"login", "authenticity_token"=>"44E7d+9Ma94JPeCMH59CeNkJx+kJv/YsRhpICfi0mz0=", "controller"=>"users", "login"=>"peter.ferne+matt@gmail.com", "password"=>"[FILTERED]"}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE (email_address = 'peter.ferne+matt@gmail.com') LIMIT 1[0m
+Completed in 210ms (View: 206, DB: 1) | 200 OK [http://localhost/login]
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing UsersController#signup (for 127.0.0.1 at 2009-05-24 16:18:03) [GET]
+  Parameters: {"action"=>"signup", "controller"=>"users"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+Completed in 221ms (View: 217, DB: 1) | 200 OK [http://localhost/users/signup]
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing UsersController#do_signup (for 127.0.0.1 at 2009-05-24 16:18:29) [POST]
+  Parameters: {"user"=>{"name"=>"Peter Ferne", "password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "email_address"=>"peter.ferne+petef@gmail.com"}, "page_path"=>"users/signup", "action"=>"do_signup", "authenticity_token"=>"44E7d+9Ma94JPeCMH59CeNkJx+kJv/YsRhpICfi0mz0=", "controller"=>"users"}
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."name" = 'Peter Ferne') LIMIT 1[0m
+  [4;35;1mUser Exists (0.2ms)[0m   [0mSELECT "users".id FROM "users" WHERE (LOWER("users"."email_address") = 'peter.ferne+petef@gmail.com') LIMIT 1[0m
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email_address" = 'peter.ferne+petef@gmail.com') LIMIT 1[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "users" [0m
+  [4;36;1mUser Create (0.6ms)[0m   [0;1mINSERT INTO "users" ("salt", "name", "key_timestamp", "updated_at", "crypted_password", "remember_token_expires_at", "administrator", "remember_token", "email_address", "created_at", "state") VALUES('837a843cb45668062613416f8ad626232bf02cd8', 'Peter Ferne', NULL, '2009-05-24 15:18:30', 'c26c5dce6ab06776a1f856200c33a19ee094c8e0', NULL, 't', NULL, 'peter.ferne+petef@gmail.com', '2009-05-24 15:18:30', 'active')[0m
+Redirected to http://localhost:3000
+Completed in 124ms (DB: 2) | 302 Found [http://localhost/users/signup]
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 127.0.0.1 at 2009-05-24 16:18:30) [GET]
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering front/index
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+Completed in 147ms (View: 143, DB: 2) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing UsersController#logout (for 127.0.0.1 at 2009-05-24 16:18:38) [GET]
+  Parameters: {"action"=>"logout", "controller"=>"users"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Redirected to http://localhost:3000
+Completed in 8ms (DB: 1) | 302 Found [http://localhost/logout]
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 127.0.0.1 at 2009-05-24 16:18:39) [GET]
+Rendering front/index
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+Completed in 210ms (View: 206, DB: 1) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing UsersController#signup (for 127.0.0.1 at 2009-05-24 16:18:42) [GET]
+  Parameters: {"action"=>"signup", "controller"=>"users"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+Completed in 243ms (View: 239, DB: 1) | 200 OK [http://localhost/users/signup]
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing UsersController#do_signup (for 127.0.0.1 at 2009-05-24 16:19:05) [POST]
+  Parameters: {"user"=>{"name"=>"Matt Jukes", "password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "email_address"=>"peter.ferne+matt@gmail.com"}, "page_path"=>"users/signup", "action"=>"do_signup", "authenticity_token"=>"vhGuBECv6dVyMS5v63p2goQ4zEETuJfMg66AA6cnlPk=", "controller"=>"users"}
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."name" = 'Matt Jukes') LIMIT 1[0m
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE (LOWER("users"."email_address") = 'peter.ferne+matt@gmail.com') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email_address" = 'peter.ferne+matt@gmail.com') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+  [4;35;1mUser Create (0.5ms)[0m   [0mINSERT INTO "users" ("salt", "name", "key_timestamp", "updated_at", "crypted_password", "remember_token_expires_at", "administrator", "remember_token", "email_address", "created_at", "state") VALUES('5b67e139badcccfcf664340983c61c532e65a745', 'Matt Jukes', NULL, '2009-05-24 15:19:05', 'b0ad4839631f0ee93efd6746d33cec21f6211aee', NULL, 'f', NULL, 'peter.ferne+matt@gmail.com', '2009-05-24 15:19:05', 'active')[0m
+Redirected to http://localhost:3000
+Completed in 18ms (DB: 1) | 302 Found [http://localhost/users/signup]
+  [4;36;1mSQL (0.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 127.0.0.1 at 2009-05-24 16:19:06) [GET]
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendering front/index
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+Completed in 216ms (View: 213, DB: 2) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing EventsController#index (for 127.0.0.1 at 2009-05-24 16:19:10) [GET]
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mEvent Load (0.3ms)[0m   [0mSELECT * FROM "events" LIMIT 30 OFFSET 0[0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+Completed in 230ms (View: 150, DB: 2) | 200 OK [http://localhost/events]
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing EventsController#new (for 127.0.0.1 at 2009-05-24 16:19:15) [GET]
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mUser Load (0.7ms)[0m   [0;1mSELECT * FROM "users" LIMIT 100[0m
+Completed in 265ms (View: 260, DB: 2) | 200 OK [http://localhost/events/new]
+/!\ FAILSAFE /!\  Sun May 24 16:22:28 +0100 2009
+  Status: 500 Internal Server Error
+  /Users/petef/Sites/seed16/app/models/event.rb:19: syntax error, unexpected tIDENTIFIER, expecting kDO or '{' or '('
+    organizer_is? acting_user ||
+                             ^
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/dependencies.rb:380:in `load_without_new_constant_marking'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/dependencies.rb:380:in `load_file'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/dependencies.rb:379:in `load_file'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/dependencies.rb:259:in `require_or_load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/dependencies.rb:425:in `load_missing_constant'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/dependencies.rb:80:in `const_missing'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/dependencies.rb:92:in `const_missing'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/inflector.rb:361:in `constantize'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/inflector.rb:360:in `each'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/inflector.rb:360:in `constantize'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/string/inflections.rb:162:in `constantize'
+    /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/lib/hobo/model_controller.rb:86:in `model'
+    /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/lib/hobo/model_controller.rb:299:in `available_auto_write_actions'
+    /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/lib/hobo/model_controller.rb:287:in `available_auto_actions'
+    /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/lib/hobo/model_controller.rb:128:in `auto_actions'
+    /Users/petef/Sites/seed16/app/controllers/events_controller.rb:5
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/dependencies.rb:380:in `load_without_new_constant_marking'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/dependencies.rb:380:in `load_file'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/dependencies.rb:379:in `load_file'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/dependencies.rb:259:in `require_or_load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/dependencies.rb:425:in `load_missing_constant'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/dependencies.rb:80:in `const_missing'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/dependencies.rb:92:in `const_missing'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/inflector.rb:361:in `constantize'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/inflector.rb:360:in `each'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/inflector.rb:360:in `constantize'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/string/inflections.rb:162:in `constantize'
+    /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/lib/hobo/model_controller.rb:61:in `all_controllers'
+    /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/lib/hobo/model_controller.rb:57:in `each'
+    /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/lib/hobo/model_controller.rb:57:in `all_controllers'
+    /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/lib/hobo/model_router.rb:97:in `add_routes_for'
+    /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/lib/hobo/model_router.rb:83:in `add_routes'
+    /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/lib/hobo/model_router.rb:83:in `each'
+    /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/lib/hobo/model_router.rb:83:in `add_routes'
+    /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/lib/hobo.rb:73:in `add_routes'
+    /Users/petef/Sites/seed16/config/routes.rb:6
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/routing/route_set.rb:226:in `draw'
+    /Users/petef/Sites/seed16/config/routes.rb:1
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/dependencies.rb:145:in `load_without_new_constant_marking'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/dependencies.rb:145:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.3.2/lib/active_support/dependencies.rb:145:in `load'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/routing/route_set.rb:286:in `load_routes!'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/routing/route_set.rb:286:in `each'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/routing/route_set.rb:286:in `load_routes!'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/routing/route_set.rb:266:in `load!'
+    /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/lib/hobo/model_router.rb:10:in `reload_without_hobo_assemble'
+    /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/lib/hobo/model_router.rb:22:in `reload'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:59:in `reload_application_without_dryml_generators'
+    /Library/Ruby/Gems/1.8/gems/hobo-0.8.7/lib/hobo/dryml/dryml_generator.rb:32:in `reload_application'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/reloader.rb:8:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/failsafe.rb:11:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/lock.rb:11:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:106:in `call'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/rails/rack/static.rb:31:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:46:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `each'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/urlmap.rb:40:in `call'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/rails/rack/log_tailer.rb:17:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/content_length.rb:13:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/chunked.rb:15:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/mongrel.rb:61:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:159:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `run'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.3.2/lib/action_controller/vendor/rack-1.0/rack/handler/mongrel.rb:34:in `run'
+    /Library/Ruby/Gems/1.8/gems/rails-2.3.2/lib/commands/server.rb:111
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    ./script/server:3
+  [4;35;1mSQL (0.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing EventsController#new (for 127.0.0.1 at 2009-05-24 16:23:19) [GET]
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+Completed in 146ms (View: 142, DB: 2) | 200 OK [http://localhost/events/new]
+  [4;36;1mSQL (0.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing EventsController#create (for 127.0.0.1 at 2009-05-24 16:23:33) [POST]
+  Parameters: {"page_path"=>"events/new", "authenticity_token"=>"vhGuBECv6dVyMS5v63p2goQ4zEETuJfMg66AA6cnlPk=", "event"=>{"title"=>"West of Interesting", "organizer_id"=>"2", "website"=>"http://winteresting.org", "description"=>"West of Interesting (or Winteresting) is inspired by the Interesting conferences held in London for the last couple of years that were the brainchild of Russell Davies, and that have since inspired events in New York, Sydney, Amsterdam and now hopefully Bristol!\r\n\r\nI was considering organising a barcamp in the Bristol area but as I looked into it I quickly became aware that I wanted to do something that was even more eclectic and less techy, while retaining some of the unconference elements that I’m so fond of. So anyway this is the pitch: an Interesting style event in the Stokes Croft area of Bristol sometime this summer. This does all rather assume that someone other than me might be up for this! "}}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mEvent Create (0.7ms)[0m   [0;1mINSERT INTO "events" ("updated_at", "title", "organizer_id", "website", "description", "created_at") VALUES('2009-05-24 15:23:33', 'West of Interesting', 2, 'http://winteresting.org', 'West of Interesting (or Winteresting) is inspired by the Interesting conferences held in London for the last couple of years that were the brainchild of Russell Davies, and that have since inspired events in New York, Sydney, Amsterdam and now hopefully Bristol!
+
+I was considering organising a barcamp in the Bristol area but as I looked into it I quickly became aware that I wanted to do something that was even more eclectic and less techy, while retaining some of the unconference elements that I’m so fond of. So anyway this is the pitch: an Interesting style event in the Stokes Croft area of Bristol sometime this summer. This does all rather assume that someone other than me might be up for this! ', '2009-05-24 15:23:33')[0m
+Redirected to http://localhost:3000/events/1-west-of-interesting
+Completed in 14ms (DB: 2) | 302 Found [http://localhost/events]
+  [4;35;1mSQL (0.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing EventsController#show (for 127.0.0.1 at 2009-05-24 16:23:34) [GET]
+  Parameters: {"id"=>"1-west-of-interesting"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mEvent Load (0.2ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 1) [0m
+  [4;36;1mUser Load (0.7ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Completed in 262ms (View: 258, DB: 2) | 200 OK [http://localhost/events/1-west-of-interesting]
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-05-24 16:23:53) [GET]
+  Parameters: {"action"=>"show", "id"=>"2-matt-jukes", "controller"=>"users"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+Completed in 241ms (View: 159, DB: 2) | 200 OK [http://localhost/users/2-matt-jukes]
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing EventsController#index (for 127.0.0.1 at 2009-05-24 16:24:06) [GET]
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mEvent Load (0.3ms)[0m   [0;1mSELECT * FROM "events" LIMIT 30 OFFSET 0[0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+Completed in 158ms (View: 152, DB: 2) | 200 OK [http://localhost/events]
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing EventsController#show (for 127.0.0.1 at 2009-05-24 16:24:09) [GET]
+  Parameters: {"id"=>"1-west-of-interesting"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mEvent Load (0.3ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 1) [0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Completed in 225ms (View: 220, DB: 2) | 200 OK [http://localhost/events/1-west-of-interesting]
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing EventsController#edit (for 127.0.0.1 at 2009-05-24 16:24:16) [GET]
+  Parameters: {"id"=>"1-west-of-interesting"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mEvent Load (0.3ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 1) [0m
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Completed in 284ms (View: 279, DB: 2) | 200 OK [http://localhost/events/1-west-of-interesting/edit]
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing EventsController#show (for 127.0.0.1 at 2009-05-24 16:24:32) [GET]
+  Parameters: {"id"=>"1-west-of-interesting"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mEvent Load (0.3ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 1) [0m
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Completed in 165ms (View: 160, DB: 2) | 200 OK [http://localhost/events/1-west-of-interesting]
+  [4;35;1mSQL (2.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing EventsController#index (for 127.0.0.1 at 2009-05-24 16:24:35) [GET]
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mEvent Load (0.3ms)[0m   [0mSELECT * FROM "events" LIMIT 30 OFFSET 0[0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+Completed in 232ms (View: 227, DB: 3) | 200 OK [http://localhost/events]
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 127.0.0.1 at 2009-05-24 16:24:46) [GET]
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendering front/index
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+Completed in 216ms (View: 213, DB: 2) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing EventsController#index (for 127.0.0.1 at 2009-05-24 16:24:49) [GET]
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mEvent Load (0.3ms)[0m   [0;1mSELECT * FROM "events" LIMIT 30 OFFSET 0[0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+Completed in 241ms (View: 236, DB: 2) | 200 OK [http://localhost/events]
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#index (for 127.0.0.1 at 2009-05-24 16:24:52) [GET]
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mInvitation Load (0.1ms)[0m   [0;1mSELECT * FROM "invitations" LIMIT 30 OFFSET 0[0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+Completed in 224ms (View: 219, DB: 2) | 200 OK [http://localhost/invitations]
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#index (for 127.0.0.1 at 2009-05-24 16:28:17) [GET]
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mInvitation Load (0.1ms)[0m   [0;1mSELECT * FROM "invitations" LIMIT 30 OFFSET 0[0m
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+Completed in 226ms (View: 222, DB: 2) | 200 OK [http://localhost/invitations]
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#index (for 127.0.0.1 at 2009-05-24 16:28:27) [GET]
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mInvitation Load (0.2ms)[0m   [0;1mSELECT * FROM "invitations" LIMIT 30 OFFSET 0[0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+Completed in 150ms (View: 146, DB: 2) | 200 OK [http://localhost/invitations]
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#index (for 127.0.0.1 at 2009-05-24 16:28:31) [GET]
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mInvitation Load (0.1ms)[0m   [0;1mSELECT * FROM "invitations" LIMIT 30 OFFSET 0[0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+Completed in 152ms (View: 147, DB: 2) | 200 OK [http://localhost/invitations]
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#index (for 127.0.0.1 at 2009-05-24 16:31:33) [GET]
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mInvitation Load (0.1ms)[0m   [0;1mSELECT * FROM "invitations" LIMIT 30 OFFSET 0[0m
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+Completed in 229ms (View: 224, DB: 2) | 200 OK [http://localhost/invitations]
+  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#index (for 127.0.0.1 at 2009-05-24 16:31:43) [GET]
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mInvitation Load (0.1ms)[0m   [0;1mSELECT * FROM "invitations" LIMIT 30 OFFSET 0[0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+Completed in 225ms (View: 221, DB: 2) | 200 OK [http://localhost/invitations]
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#index (for 127.0.0.1 at 2009-05-24 16:32:04) [GET]
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mInvitation Load (0.1ms)[0m   [0;1mSELECT * FROM "invitations" LIMIT 30 OFFSET 0[0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+Completed in 222ms (View: 218, DB: 2) | 200 OK [http://localhost/invitations]
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#index (for 127.0.0.1 at 2009-05-24 16:32:07) [GET]
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mInvitation Load (0.1ms)[0m   [0;1mSELECT * FROM "invitations" LIMIT 30 OFFSET 0[0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+Completed in 149ms (View: 145, DB: 2) | 200 OK [http://localhost/invitations]
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#index (for 127.0.0.1 at 2009-05-24 16:32:18) [GET]
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mInvitation Load (0.1ms)[0m   [0;1mSELECT * FROM "invitations" LIMIT 30 OFFSET 0[0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+Completed in 148ms (View: 143, DB: 2) | 200 OK [http://localhost/invitations]
+  [4;36;1mSQL (0.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#index (for 127.0.0.1 at 2009-05-24 16:33:05) [GET]
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mInvitation Load (0.1ms)[0m   [0;1mSELECT * FROM "invitations" LIMIT 30 OFFSET 0[0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+Completed in 246ms (View: 242, DB: 2) | 200 OK [http://localhost/invitations]
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#index (for 127.0.0.1 at 2009-05-24 16:34:53) [GET]
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mInvitation Load (0.3ms)[0m   [0;1mSELECT * FROM "invitations" LIMIT 30 OFFSET 0[0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+Completed in 233ms (View: 227, DB: 2) | 200 OK [http://localhost/invitations]
+  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing EventsController#index (for 127.0.0.1 at 2009-05-24 16:34:58) [GET]
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mEvent Load (0.3ms)[0m   [0;1mSELECT * FROM "events" LIMIT 30 OFFSET 0[0m
+  [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+Completed in 227ms (View: 222, DB: 2) | 200 OK [http://localhost/events]
+  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 127.0.0.1 at 2009-05-24 16:34:59) [GET]
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendering front/index
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+Completed in 234ms (View: 230, DB: 2) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#index (for 127.0.0.1 at 2009-05-24 16:35:02) [GET]
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mInvitation Load (0.2ms)[0m   [0mSELECT * FROM "invitations" LIMIT 30 OFFSET 0[0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+Completed in 157ms (View: 152, DB: 2) | 200 OK [http://localhost/invitations]
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#new (for 127.0.0.1 at 2009-05-24 16:35:11) [GET]
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mEvent Load (0.4ms)[0m   [0;1mSELECT * FROM "events" LIMIT 100[0m
+  [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM "users" LIMIT 100[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" LIMIT 100[0m
+Completed in 333ms (View: 327, DB: 3) | 200 OK [http://localhost/invitations/new]
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#index (for 127.0.0.1 at 2009-05-24 16:51:38) [GET]
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mInvitation Load (0.1ms)[0m   [0mSELECT * FROM "invitations" LIMIT 30 OFFSET 0[0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+Completed in 226ms (View: 222, DB: 2) | 200 OK [http://localhost/invitations]
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing EventsController#index (for 127.0.0.1 at 2009-05-24 16:51:45) [GET]
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mEvent Load (0.3ms)[0m   [0mSELECT * FROM "events" LIMIT 30 OFFSET 0[0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+Completed in 155ms (View: 150, DB: 2) | 200 OK [http://localhost/events]
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing EventsController#show (for 127.0.0.1 at 2009-05-24 16:51:48) [GET]
+  Parameters: {"id"=>"1-west-of-interesting"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mEvent Load (0.2ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 1) [0m
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Completed in 158ms (View: 153, DB: 2) | 200 OK [http://localhost/events/1-west-of-interesting]
+  [4;36;1mSQL (1.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#index (for 127.0.0.1 at 2009-05-24 16:51:54) [GET]
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mInvitation Load (0.1ms)[0m   [0;1mSELECT * FROM "invitations" LIMIT 30 OFFSET 0[0m
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+Completed in 237ms (View: 233, DB: 2) | 200 OK [http://localhost/invitations]
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 127.0.0.1 at 2009-05-24 16:51:58) [GET]
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendering front/index
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+Completed in 228ms (View: 224, DB: 1) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing EventsController#index (for 127.0.0.1 at 2009-05-24 16:51:59) [GET]
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mEvent Load (0.3ms)[0m   [0mSELECT * FROM "events" LIMIT 30 OFFSET 0[0m
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+Completed in 239ms (View: 233, DB: 2) | 200 OK [http://localhost/events]
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#index (for 127.0.0.1 at 2009-05-24 16:52:01) [GET]
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mInvitation Load (0.1ms)[0m   [0mSELECT * FROM "invitations" LIMIT 30 OFFSET 0[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+Completed in 226ms (View: 221, DB: 2) | 200 OK [http://localhost/invitations]
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#index (for 127.0.0.1 at 2009-05-24 16:52:25) [GET]
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mInvitation Load (0.1ms)[0m   [0mSELECT * FROM "invitations" LIMIT 30 OFFSET 0[0m
+  [4;36;1mUser Load (0.7ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+Completed in 242ms (View: 237, DB: 2) | 200 OK [http://localhost/invitations]
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#index (for 127.0.0.1 at 2009-05-24 16:52:28) [GET]
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mInvitation Load (0.1ms)[0m   [0mSELECT * FROM "invitations" LIMIT 30 OFFSET 0[0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+Completed in 222ms (View: 218, DB: 2) | 200 OK [http://localhost/invitations]
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#index (for 127.0.0.1 at 2009-05-24 16:52:53) [GET]
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mInvitation Load (0.1ms)[0m   [0mSELECT * FROM "invitations" LIMIT 30 OFFSET 0[0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+Completed in 156ms (View: 152, DB: 2) | 200 OK [http://localhost/invitations]
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#new (for 127.0.0.1 at 2009-05-24 16:53:01) [GET]
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+Completed in 228ms (View: 224, DB: 1) | 200 OK [http://localhost/invitations/new]
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#index (for 127.0.0.1 at 2009-05-24 16:53:06) [GET]
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mInvitation Load (0.1ms)[0m   [0;1mSELECT * FROM "invitations" LIMIT 30 OFFSET 0[0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+Completed in 228ms (View: 223, DB: 2) | 200 OK [http://localhost/invitations]
+  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing EventsController#index (for 127.0.0.1 at 2009-05-24 16:53:08) [GET]
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mEvent Load (0.3ms)[0m   [0;1mSELECT * FROM "events" LIMIT 30 OFFSET 0[0m
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+Completed in 243ms (View: 238, DB: 2) | 200 OK [http://localhost/events]
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing EventsController#show (for 127.0.0.1 at 2009-05-24 16:53:12) [GET]
+  Parameters: {"id"=>"1-west-of-interesting"}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mEvent Load (0.3ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 1) [0m
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Completed in 238ms (View: 233, DB: 2) | 200 OK [http://localhost/events/1-west-of-interesting]
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing EventsController#edit (for 127.0.0.1 at 2009-05-24 16:53:16) [GET]
+  Parameters: {"id"=>"1-west-of-interesting"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mEvent Load (0.2ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 1) [0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Completed in 329ms (View: 325, DB: 2) | 200 OK [http://localhost/events/1-west-of-interesting/edit]
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing EventsController#show (for 127.0.0.1 at 2009-05-24 16:53:23) [GET]
+  Parameters: {"id"=>"1-west-of-interesting"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mEvent Load (0.3ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 1) [0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Completed in 236ms (View: 232, DB: 2) | 200 OK [http://localhost/events/1-west-of-interesting]
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing EventsController#index (for 127.0.0.1 at 2009-05-24 16:53:25) [GET]
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mEvent Load (0.2ms)[0m   [0mSELECT * FROM "events" LIMIT 30 OFFSET 0[0m
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+Completed in 236ms (View: 232, DB: 2) | 200 OK [http://localhost/events]
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing EventsController#index (for 127.0.0.1 at 2009-05-24 16:54:23) [GET]
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mEvent Load (0.2ms)[0m   [0mSELECT * FROM "events" LIMIT 30 OFFSET 0[0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+Completed in 216ms (View: 212, DB: 2) | 200 OK [http://localhost/events]
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#index (for 127.0.0.1 at 2009-05-24 16:54:26) [GET]
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mInvitation Load (0.1ms)[0m   [0mSELECT * FROM "invitations" LIMIT 30 OFFSET 0[0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+Completed in 154ms (View: 149, DB: 2) | 200 OK [http://localhost/invitations]
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#new (for 127.0.0.1 at 2009-05-24 16:54:29) [GET]
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mEvent Load (0.4ms)[0m   [0;1mSELECT * FROM "events" LIMIT 100[0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" LIMIT 100[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" LIMIT 100[0m
+Completed in 264ms (View: 259, DB: 3) | 200 OK [http://localhost/invitations/new]
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#create (for 127.0.0.1 at 2009-05-24 16:54:40) [POST]
+  Parameters: {"page_path"=>"invitations/new", "authenticity_token"=>"vhGuBECv6dVyMS5v63p2goQ4zEETuJfMg66AA6cnlPk=", "invitation"=>{"event_id"=>"1", "recipient_id"=>"1", "sender_id"=>""}}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mInvitation Create (429.5ms)[0m   [0mINSERT INTO "invitations" ("event_id", "key_timestamp", "updated_at", "recipient_id", "sender_id", "created_at", "state") VALUES(1, NULL, '2009-05-24 15:54:41', 1, NULL, '2009-05-24 15:54:41', NULL)[0m
+Redirected to http://localhost:3000/invitations/1
+Completed in 976ms (DB: 430) | 302 Found [http://localhost/invitations]
+  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#show (for 127.0.0.1 at 2009-05-24 16:54:42) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mInvitation Load (0.3ms)[0m   [0;1mSELECT * FROM "invitations" WHERE ("invitations"."id" = 1) [0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mEvent Load (1.4ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 1) [0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 240ms (View: 234, DB: 4) | 200 OK [http://localhost/invitations/1]
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing EventsController#index (for 127.0.0.1 at 2009-05-24 16:55:22) [GET]
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mEvent Load (0.3ms)[0m   [0;1mSELECT * FROM "events" LIMIT 30 OFFSET 0[0m
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+Completed in 234ms (View: 229, DB: 2) | 200 OK [http://localhost/events]
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing EventsController#new (for 127.0.0.1 at 2009-05-24 16:57:02) [GET]
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+Completed in 153ms (View: 149, DB: 2) | 200 OK [http://localhost/events/new]
+  [4;35;1mSQL (0.8ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#index (for 127.0.0.1 at 2009-05-24 16:57:20) [GET]
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mInvitation Load (0.2ms)[0m   [0mSELECT * FROM "invitations" LIMIT 30 OFFSET 0[0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+Completed in 154ms (View: 149, DB: 2) | 200 OK [http://localhost/invitations]
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#show (for 127.0.0.1 at 2009-05-24 16:57:29) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mInvitation Load (0.3ms)[0m   [0mSELECT * FROM "invitations" WHERE ("invitations"."id" = 1) [0m
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mEvent Load (0.3ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 1) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 250ms (View: 244, DB: 3) | 200 OK [http://localhost/invitations/1]
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#index (for 127.0.0.1 at 2009-05-24 16:58:50) [GET]
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mInvitation Load (0.3ms)[0m   [0mSELECT * FROM "invitations" LIMIT 30 OFFSET 0[0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+Completed in 228ms (View: 223, DB: 2) | 200 OK [http://localhost/invitations]
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#new (for 127.0.0.1 at 2009-05-24 16:58:53) [GET]
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mEvent Load (0.4ms)[0m   [0;1mSELECT * FROM "events" LIMIT 100[0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" LIMIT 100[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" LIMIT 100[0m
+Completed in 340ms (View: 335, DB: 2) | 200 OK [http://localhost/invitations/new]
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#create (for 127.0.0.1 at 2009-05-24 17:03:20) [POST]
+  Parameters: {"page_path"=>"invitations/new", "authenticity_token"=>"vhGuBECv6dVyMS5v63p2goQ4zEETuJfMg66AA6cnlPk=", "invitation"=>{"event_id"=>"", "recipient_id"=>"", "sender_id"=>""}}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#new (for 127.0.0.1 at 2009-05-24 17:03:28) [GET]
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+Completed in 225ms (View: 221, DB: 2) | 200 OK [http://localhost/invitations/new]
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#create (for 127.0.0.1 at 2009-05-24 17:03:41) [POST]
+  Parameters: {"page_path"=>"invitations/new", "authenticity_token"=>"vhGuBECv6dVyMS5v63p2goQ4zEETuJfMg66AA6cnlPk=", "invitation"=>{"event_id"=>"", "recipient_id"=>"", "sender_id"=>""}}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#index (for 127.0.0.1 at 2009-05-24 17:04:30) [GET]
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mInvitation Load (0.4ms)[0m   [0;1mSELECT * FROM "invitations" LIMIT 30 OFFSET 0[0m
+  [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+Completed in 249ms (View: 243, DB: 2) | 200 OK [http://localhost/invitations]
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#new (for 127.0.0.1 at 2009-05-24 17:04:32) [GET]
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mEvent Load (0.4ms)[0m   [0mSELECT * FROM "events" LIMIT 100[0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" LIMIT 100[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" LIMIT 100[0m
+Completed in 341ms (View: 336, DB: 2) | 200 OK [http://localhost/invitations/new]
+  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#create (for 127.0.0.1 at 2009-05-24 17:05:05) [POST]
+  Parameters: {"page_path"=>"invitations/new", "authenticity_token"=>"vhGuBECv6dVyMS5v63p2goQ4zEETuJfMg66AA6cnlPk=", "invitation"=>{"event_id"=>"1", "recipient_id"=>"2", "sender_id"=>"1"}}
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mInvitation Create (0.6ms)[0m   [0;1mINSERT INTO "invitations" ("event_id", "key_timestamp", "updated_at", "recipient_id", "sender_id", "created_at", "state") VALUES(1, NULL, '2009-05-24 16:05:05', 2, 1, '2009-05-24 16:05:05', NULL)[0m
+Redirected to http://localhost:3000/invitations/2
+Completed in 16ms (DB: 2) | 302 Found [http://localhost/invitations]
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#show (for 127.0.0.1 at 2009-05-24 17:05:05) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mInvitation Load (0.3ms)[0m   [0mSELECT * FROM "invitations" WHERE ("invitations"."id" = 2) [0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mEvent Load (0.4ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 171ms (View: 165, DB: 3) | 200 OK [http://localhost/invitations/2]
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#index (for 127.0.0.1 at 2009-05-24 17:05:13) [GET]
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mInvitation Load (0.5ms)[0m   [0;1mSELECT * FROM "invitations" LIMIT 30 OFFSET 0[0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+Completed in 230ms (View: 224, DB: 2) | 200 OK [http://localhost/invitations]
+  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#new (for 127.0.0.1 at 2009-05-24 17:05:15) [GET]
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mEvent Load (0.4ms)[0m   [0mSELECT * FROM "events" LIMIT 100[0m
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM "users" LIMIT 100[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" LIMIT 100[0m
+Completed in 265ms (View: 260, DB: 3) | 200 OK [http://localhost/invitations/new]
+  [4;36;1mSQL (0.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#create (for 127.0.0.1 at 2009-05-24 17:05:25) [POST]
+  Parameters: {"page_path"=>"invitations/new", "authenticity_token"=>"vhGuBECv6dVyMS5v63p2goQ4zEETuJfMg66AA6cnlPk=", "invitation"=>{"event_id"=>"", "recipient_id"=>"1", "sender_id"=>"2"}}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mInvitation Create (0.4ms)[0m   [0;1mINSERT INTO "invitations" ("event_id", "key_timestamp", "updated_at", "recipient_id", "sender_id", "created_at", "state") VALUES(NULL, NULL, '2009-05-24 16:05:25', 1, 2, '2009-05-24 16:05:25', NULL)[0m
+Redirected to http://localhost:3000/invitations/3
+Completed in 14ms (DB: 2) | 302 Found [http://localhost/invitations]
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#show (for 127.0.0.1 at 2009-05-24 17:05:26) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mInvitation Load (0.2ms)[0m   [0mSELECT * FROM "invitations" WHERE ("invitations"."id" = 3) [0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Completed in 243ms (View: 238, DB: 2) | 200 OK [http://localhost/invitations/3]
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#edit (for 127.0.0.1 at 2009-05-24 17:05:33) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mInvitation Load (0.3ms)[0m   [0mSELECT * FROM "invitations" WHERE ("invitations"."id" = 3) [0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mEvent Load (0.4ms)[0m   [0mSELECT * FROM "events" LIMIT 100[0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" LIMIT 100[0m
+Completed in 257ms (View: 251, DB: 3) | 200 OK [http://localhost/invitations/3/edit]
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#update (for 127.0.0.1 at 2009-05-24 17:05:53) [PUT]
+  Parameters: {"page_path"=>"invitations/edit", "authenticity_token"=>"vhGuBECv6dVyMS5v63p2goQ4zEETuJfMg66AA6cnlPk=", "id"=>"3", "invitation"=>{"event_id"=>"1", "recipient_id"=>"1"}}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mInvitation Load (0.3ms)[0m   [0mSELECT * FROM "invitations" WHERE ("invitations"."id" = 3) [0m
+  [4;36;1mInvitation Update (0.4ms)[0m   [0;1mUPDATE "invitations" SET "event_id" = 1, "updated_at" = '2009-05-24 16:05:53' WHERE "id" = 3[0m
+Redirected to http://localhost:3000/invitations/3
+Completed in 14ms (DB: 2) | 302 Found [http://localhost/invitations/3]
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#show (for 127.0.0.1 at 2009-05-24 17:05:54) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mInvitation Load (0.2ms)[0m   [0mSELECT * FROM "invitations" WHERE ("invitations"."id" = 3) [0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mEvent Load (0.4ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 1) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Completed in 241ms (View: 236, DB: 3) | 200 OK [http://localhost/invitations/3]
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2009-05-24 17:06:06) [GET]
+  Parameters: {"action"=>"show", "id"=>"2-matt-jukes", "controller"=>"users"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+Completed in 603ms (View: 598, DB: 2) | 200 OK [http://localhost/users/2-matt-jukes]
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing UsersController#logout (for 127.0.0.1 at 2009-05-24 17:06:09) [GET]
+  Parameters: {"action"=>"logout", "controller"=>"users"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Redirected to http://localhost:3000
+Completed in 7ms (DB: 1) | 302 Found [http://localhost/logout]
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 127.0.0.1 at 2009-05-24 17:06:10) [GET]
+Rendering front/index
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+Completed in 146ms (View: 141, DB: 1) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing Hobo::DevController#set_current_user (for 127.0.0.1 at 2009-05-24 17:06:13) [GET]
+  Parameters: {"login"=>"peter.ferne petef@gmail.com"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."email_address" = 'peter.ferne petef@gmail.com') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 19ms (DB: 1) | 302 Found [http://localhost/dev/set_current_user?login=peter.ferne+petef@gmail.com]
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 127.0.0.1 at 2009-05-24 17:06:13) [GET]
+Rendering front/index
+  [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+Completed in 214ms (View: 210, DB: 1) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing UsersController#login (for 127.0.0.1 at 2009-05-24 17:06:16) [GET]
+  Parameters: {"action"=>"login", "controller"=>"users"}
+Completed in 214ms (View: 210, DB: 1) | 200 OK [http://localhost/login]
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing UsersController#login (for 127.0.0.1 at 2009-05-24 17:06:38) [POST]
+  Parameters: {"page_path"=>"users/login", "action"=>"login", "authenticity_token"=>"D2LakW+8A/lEkVpp+NC/JtWVqEJY+0ThtXGqt2DbRoE=", "controller"=>"users", "login"=>"peter.ferne+petef@gmail.com", "password"=>"[FILTERED]"}
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" WHERE (email_address = 'peter.ferne+petef@gmail.com') LIMIT 1[0m
+Redirected to http://localhost:3000
+Completed in 8ms (DB: 1) | 302 Found [http://localhost/login]
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 127.0.0.1 at 2009-05-24 17:06:38) [GET]
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering front/index
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+Completed in 224ms (View: 220, DB: 2) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#index (for 127.0.0.1 at 2009-05-24 17:06:41) [GET]
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mInvitation Load (0.5ms)[0m   [0;1mSELECT * FROM "invitations" LIMIT 30 OFFSET 0[0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+Completed in 249ms (View: 243, DB: 2) | 200 OK [http://localhost/invitations]
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#new (for 127.0.0.1 at 2009-05-24 17:06:45) [GET]
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mEvent Load (0.4ms)[0m   [0mSELECT * FROM "events" LIMIT 100[0m
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" LIMIT 100[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" LIMIT 100[0m
+Completed in 349ms (View: 344, DB: 3) | 200 OK [http://localhost/invitations/new]
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#create (for 127.0.0.1 at 2009-05-24 17:07:02) [POST]
+  Parameters: {"page_path"=>"invitations/new", "authenticity_token"=>"D2LakW+8A/lEkVpp+NC/JtWVqEJY+0ThtXGqt2DbRoE=", "invitation"=>{"event_id"=>"1", "recipient_id"=>"2", "sender_id"=>"1"}}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mInvitation Create (0.4ms)[0m   [0;1mINSERT INTO "invitations" ("event_id", "key_timestamp", "updated_at", "recipient_id", "sender_id", "created_at", "state") VALUES(1, NULL, '2009-05-24 16:07:02', 2, 1, '2009-05-24 16:07:02', NULL)[0m
+Redirected to http://localhost:3000/invitations/4
+Completed in 15ms (DB: 1) | 302 Found [http://localhost/invitations]
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#show (for 127.0.0.1 at 2009-05-24 17:07:02) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mInvitation Load (0.3ms)[0m   [0mSELECT * FROM "invitations" WHERE ("invitations"."id" = 4) [0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mEvent Load (0.3ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 1) [0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 169ms (View: 164, DB: 3) | 200 OK [http://localhost/invitations/4]
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#edit (for 127.0.0.1 at 2009-05-24 17:07:18) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mInvitation Load (0.3ms)[0m   [0;1mSELECT * FROM "invitations" WHERE ("invitations"."id" = 4) [0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mEvent Load (0.5ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 1) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mEvent Load (0.3ms)[0m   [0mSELECT * FROM "events" LIMIT 100[0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" LIMIT 100[0m
+Completed in 250ms (View: 244, DB: 3) | 200 OK [http://localhost/invitations/4/edit]
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#edit (for 127.0.0.1 at 2009-05-24 17:07:55) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mInvitation Load (0.2ms)[0m   [0mSELECT * FROM "invitations" WHERE ("invitations"."id" = 4) [0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mEvent Load (0.3ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 1) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mEvent Load (0.3ms)[0m   [0;1mSELECT * FROM "events" LIMIT 100[0m
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" LIMIT 100[0m
+Completed in 258ms (View: 252, DB: 3) | 200 OK [http://localhost/invitations/4/edit]
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#edit (for 127.0.0.1 at 2009-05-24 17:07:59) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mInvitation Load (0.3ms)[0m   [0;1mSELECT * FROM "invitations" WHERE ("invitations"."id" = 4) [0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mEvent Load (0.3ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 1) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mEvent Load (0.3ms)[0m   [0mSELECT * FROM "events" LIMIT 100[0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" LIMIT 100[0m
+Completed in 251ms (View: 245, DB: 3) | 200 OK [http://localhost/invitations/4/edit]
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#update (for 127.0.0.1 at 2009-05-24 17:08:05) [PUT]
+  Parameters: {"page_path"=>"invitations/edit", "authenticity_token"=>"D2LakW+8A/lEkVpp+NC/JtWVqEJY+0ThtXGqt2DbRoE=", "id"=>"4", "invitation"=>{"event_id"=>"1", "recipient_id"=>"1"}}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mInvitation Load (0.2ms)[0m   [0mSELECT * FROM "invitations" WHERE ("invitations"."id" = 4) [0m
+  [4;36;1mInvitation Update (0.4ms)[0m   [0;1mUPDATE "invitations" SET "recipient_id" = 1, "updated_at" = '2009-05-24 16:08:05' WHERE "id" = 4[0m
+Redirected to http://localhost:3000/invitations/4
+Completed in 17ms (DB: 2) | 302 Found [http://localhost/invitations/4]
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#show (for 127.0.0.1 at 2009-05-24 17:08:06) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mInvitation Load (0.2ms)[0m   [0mSELECT * FROM "invitations" WHERE ("invitations"."id" = 4) [0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mEvent Load (0.3ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 227ms (View: 222, DB: 2) | 200 OK [http://localhost/invitations/4]
+  [4;36;1mSQL (1.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#edit (for 127.0.0.1 at 2009-05-24 17:08:10) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mInvitation Load (0.2ms)[0m   [0;1mSELECT * FROM "invitations" WHERE ("invitations"."id" = 4) [0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mEvent Load (0.3ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mEvent Load (0.4ms)[0m   [0mSELECT * FROM "events" LIMIT 100[0m
+  [4;36;1mUser Load (1.8ms)[0m   [0;1mSELECT * FROM "users" LIMIT 100[0m
+Completed in 265ms (View: 258, DB: 5) | 200 OK [http://localhost/invitations/4/edit]
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#update (for 127.0.0.1 at 2009-05-24 17:08:17) [PUT]
+  Parameters: {"page_path"=>"invitations/edit", "authenticity_token"=>"D2LakW+8A/lEkVpp+NC/JtWVqEJY+0ThtXGqt2DbRoE=", "id"=>"4", "invitation"=>{"event_id"=>"1", "recipient_id"=>"2"}}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mInvitation Load (0.3ms)[0m   [0mSELECT * FROM "invitations" WHERE ("invitations"."id" = 4) [0m
+  [4;36;1mInvitation Update (0.5ms)[0m   [0;1mUPDATE "invitations" SET "recipient_id" = 2, "updated_at" = '2009-05-24 16:08:17' WHERE "id" = 4[0m
+Redirected to http://localhost:3000/invitations/4
+Completed in 19ms (DB: 2) | 302 Found [http://localhost/invitations/4]
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#show (for 127.0.0.1 at 2009-05-24 17:08:18) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mInvitation Load (0.2ms)[0m   [0mSELECT * FROM "invitations" WHERE ("invitations"."id" = 4) [0m
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mEvent Load (0.4ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 1) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 248ms (View: 243, DB: 2) | 200 OK [http://localhost/invitations/4]
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing UsersController#logout (for 127.0.0.1 at 2009-05-24 17:08:37) [GET]
+  Parameters: {"action"=>"logout", "controller"=>"users"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Redirected to http://localhost:3000
+Completed in 7ms (DB: 1) | 302 Found [http://localhost/logout]
+  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 127.0.0.1 at 2009-05-24 17:08:38) [GET]
+Rendering front/index
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+Completed in 147ms (View: 143, DB: 1) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing UsersController#login (for 127.0.0.1 at 2009-05-24 17:08:40) [GET]
+  Parameters: {"action"=>"login", "controller"=>"users"}
+Completed in 143ms (View: 139, DB: 1) | 200 OK [http://localhost/login]
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing UsersController#login (for 127.0.0.1 at 2009-05-24 17:09:00) [POST]
+  Parameters: {"page_path"=>"users/login", "action"=>"login", "authenticity_token"=>"8WKq64Fxq3JWjmud0jy6NT9/QNNyJxbh546A3+Xl/lY=", "controller"=>"users", "login"=>"peter.ferne+matt@gmail.com", "password"=>"[FILTERED]"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE (email_address = 'peter.ferne+matt@gmail.com') LIMIT 1[0m
+Redirected to http://localhost:3000
+Completed in 8ms (DB: 1) | 302 Found [http://localhost/login]
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing FrontController#index (for 127.0.0.1 at 2009-05-24 17:09:01) [GET]
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendering front/index
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+Completed in 222ms (View: 219, DB: 2) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#index (for 127.0.0.1 at 2009-05-24 17:09:04) [GET]
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mInvitation Load (0.5ms)[0m   [0;1mSELECT * FROM "invitations" LIMIT 30 OFFSET 0[0m
+  [4;35;1mUser Load (0.7ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+Completed in 243ms (View: 237, DB: 2) | 200 OK [http://localhost/invitations]
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#new (for 127.0.0.1 at 2009-05-24 17:09:08) [GET]
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mEvent Load (0.3ms)[0m   [0mSELECT * FROM "events" LIMIT 100[0m
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" LIMIT 100[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" LIMIT 100[0m
+Completed in 256ms (View: 251, DB: 2) | 200 OK [http://localhost/invitations/new]
+  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing EventsController#index (for 127.0.0.1 at 2009-05-24 17:09:19) [GET]
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mEvent Load (0.3ms)[0m   [0;1mSELECT * FROM "events" LIMIT 30 OFFSET 0[0m
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+Completed in 703ms (View: 698, DB: 2) | 200 OK [http://localhost/events]
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing EventsController#new (for 127.0.0.1 at 2009-05-24 17:09:22) [GET]
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" LIMIT 100[0m
+Completed in 261ms (View: 257, DB: 2) | 200 OK [http://localhost/events/new]
+  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing EventsController#new (for 127.0.0.1 at 2009-05-24 17:10:14) [GET]
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+Completed in 225ms (View: 220, DB: 2) | 200 OK [http://localhost/events/new]
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing EventsController#new (for 127.0.0.1 at 2009-05-24 17:10:21) [GET]
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+Completed in 145ms (View: 141, DB: 1) | 200 OK [http://localhost/events/new]
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing EventsController#index (for 127.0.0.1 at 2009-05-24 17:10:29) [GET]
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mEvent Load (0.2ms)[0m   [0;1mSELECT * FROM "events" LIMIT 30 OFFSET 0[0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+Completed in 140ms (View: 136, DB: 2) | 200 OK [http://localhost/events/]
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing EventsController#index (for 127.0.0.1 at 2009-05-24 17:11:18) [GET]
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mEvent Load (0.3ms)[0m   [0;1mSELECT * FROM "events" LIMIT 30 OFFSET 0[0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+Completed in 230ms (View: 225, DB: 2) | 200 OK [http://localhost/events]
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#index (for 127.0.0.1 at 2009-05-24 17:11:21) [GET]
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mInvitation Load (0.5ms)[0m   [0;1mSELECT * FROM "invitations" LIMIT 30 OFFSET 0[0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+Completed in 242ms (View: 237, DB: 2) | 200 OK [http://localhost/invitations]
+  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#show (for 127.0.0.1 at 2009-05-24 17:11:24) [GET]
+  Parameters: {"id"=>"4"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mInvitation Load (0.2ms)[0m   [0;1mSELECT * FROM "invitations" WHERE ("invitations"."id" = 4) [0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mEvent Load (0.3ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 225ms (View: 220, DB: 2) | 200 OK [http://localhost/invitations/4]
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#index (for 127.0.0.1 at 2009-05-24 17:11:28) [GET]
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mInvitation Load (0.6ms)[0m   [0mSELECT * FROM "invitations" LIMIT 30 OFFSET 0[0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+Completed in 168ms (View: 163, DB: 2) | 200 OK [http://localhost/invitations]
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#show (for 127.0.0.1 at 2009-05-24 17:11:30) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mInvitation Load (0.3ms)[0m   [0mSELECT * FROM "invitations" WHERE ("invitations"."id" = 3) [0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mEvent Load (0.3ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 1) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Completed in 251ms (View: 246, DB: 2) | 200 OK [http://localhost/invitations/3]
+  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#index (for 127.0.0.1 at 2009-05-24 17:11:38) [GET]
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mInvitation Load (0.7ms)[0m   [0;1mSELECT * FROM "invitations" LIMIT 30 OFFSET 0[0m
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+Completed in 247ms (View: 242, DB: 2) | 200 OK [http://localhost/invitations]
+  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#show (for 127.0.0.1 at 2009-05-24 17:11:40) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mInvitation Load (0.3ms)[0m   [0;1mSELECT * FROM "invitations" WHERE ("invitations"."id" = 2) [0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mEvent Load (0.3ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 240ms (View: 235, DB: 3) | 200 OK [http://localhost/invitations/2]
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#index (for 127.0.0.1 at 2009-05-24 17:11:44) [GET]
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mInvitation Load (0.5ms)[0m   [0mSELECT * FROM "invitations" LIMIT 30 OFFSET 0[0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+Completed in 167ms (View: 162, DB: 2) | 200 OK [http://localhost/invitations]
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#show (for 127.0.0.1 at 2009-05-24 17:11:47) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mInvitation Load (0.2ms)[0m   [0mSELECT * FROM "invitations" WHERE ("invitations"."id" = 1) [0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mEvent Load (0.3ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 1) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 250ms (View: 245, DB: 2) | 200 OK [http://localhost/invitations/1]
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#index (for 127.0.0.1 at 2009-05-24 17:11:52) [GET]
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mInvitation Load (0.6ms)[0m   [0mSELECT * FROM "invitations" LIMIT 30 OFFSET 0[0m
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+Completed in 251ms (View: 246, DB: 2) | 200 OK [http://localhost/invitations]
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#show (for 127.0.0.1 at 2009-05-24 17:11:54) [GET]
+  Parameters: {"id"=>"4"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mInvitation Load (0.2ms)[0m   [0mSELECT * FROM "invitations" WHERE ("invitations"."id" = 4) [0m
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mEvent Load (0.3ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 247ms (View: 243, DB: 2) | 200 OK [http://localhost/invitations/4]
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#index (for 127.0.0.1 at 2009-05-24 17:11:56) [GET]
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mInvitation Load (0.5ms)[0m   [0;1mSELECT * FROM "invitations" LIMIT 30 OFFSET 0[0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+Completed in 163ms (View: 158, DB: 2) | 200 OK [http://localhost/invitations]
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#show (for 127.0.0.1 at 2009-05-24 17:11:58) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mInvitation Load (0.2ms)[0m   [0;1mSELECT * FROM "invitations" WHERE ("invitations"."id" = 3) [0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mEvent Load (0.5ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 1) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Completed in 239ms (View: 234, DB: 3) | 200 OK [http://localhost/invitations/3]
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#edit (for 127.0.0.1 at 2009-05-24 17:12:01) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mInvitation Load (0.3ms)[0m   [0mSELECT * FROM "invitations" WHERE ("invitations"."id" = 3) [0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mEvent Load (0.4ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 1) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mEvent Load (0.3ms)[0m   [0;1mSELECT * FROM "events" LIMIT 100[0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" LIMIT 100[0m
+Completed in 256ms (View: 250, DB: 3) | 200 OK [http://localhost/invitations/3/edit]
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#destroy (for 127.0.0.1 at 2009-05-24 17:12:17) [DELETE]
+  Parameters: {"authenticity_token"=>"8WKq64Fxq3JWjmud0jy6NT9/QNNyJxbh546A3+Xl/lY=", "id"=>"3"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mInvitation Load (0.3ms)[0m   [0;1mSELECT * FROM "invitations" WHERE ("invitations"."id" = 3) [0m
+  [4;35;1mInvitation Destroy (0.6ms)[0m   [0mDELETE FROM "invitations" WHERE "id" = 3[0m
+Redirected to http://localhost:3000/invitations
+Completed in 14ms (DB: 2) | 302 Found [http://localhost/invitations/3]
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#index (for 127.0.0.1 at 2009-05-24 17:12:17) [GET]
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mInvitation Load (0.5ms)[0m   [0;1mSELECT * FROM "invitations" LIMIT 30 OFFSET 0[0m
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+Completed in 223ms (View: 218, DB: 2) | 200 OK [http://localhost/invitations]
+  [4;36;1mSQL (0.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#show (for 127.0.0.1 at 2009-05-24 17:12:21) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mInvitation Load (0.3ms)[0m   [0;1mSELECT * FROM "invitations" WHERE ("invitations"."id" = 2) [0m
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" LIMIT 30[0m
+  [4;36;1mEvent Load (0.4ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 177ms (View: 172, DB: 3) | 200 OK [http://localhost/invitations/2]
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#index (for 127.0.0.1 at 2009-05-24 17:12:28) [GET]
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mInvitation Load (0.4ms)[0m   [0mSELECT * FROM "invitations" LIMIT 30 OFFSET 0[0m
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+Completed in 250ms (View: 245, DB: 2) | 200 OK [http://localhost/invitations]
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#show (for 127.0.0.1 at 2009-05-24 17:12:30) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mInvitation Load (0.3ms)[0m   [0mSELECT * FROM "invitations" WHERE ("invitations"."id" = 1) [0m
+  [4;36;1mUser Load (0.6ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mEvent Load (0.5ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 1) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Completed in 248ms (View: 241, DB: 3) | 200 OK [http://localhost/invitations/1]
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing InvitationsController#index (for 127.0.0.1 at 2009-05-24 17:12:33) [GET]
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mInvitation Load (0.5ms)[0m   [0mSELECT * FROM "invitations" LIMIT 30 OFFSET 0[0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+Completed in 238ms (View: 233, DB: 2) | 200 OK [http://localhost/invitations]
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing EventsController#index (for 127.0.0.1 at 2009-05-24 17:12:34) [GET]
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mEvent Load (0.2ms)[0m   [0mSELECT * FROM "events" LIMIT 30 OFFSET 0[0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+Completed in 216ms (View: 212, DB: 2) | 200 OK [http://localhost/events]
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Processing EventsController#show (for 127.0.0.1 at 2009-05-24 17:12:37) [GET]
+  Parameters: {"id"=>"1-west-of-interesting"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+  [4;35;1mEvent Load (0.3ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 1) [0m
+  [4;36;1mUser Load (0.5ms)[0m   [0;1mSELECT * FROM "users" LIMIT 30[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Completed in 161ms (View: 157, DB: 2) | 200 OK [http://localhost/events/1-west-of-interesting]

@@ -1,0 +1,20 @@
+<page title="Home">
+
+  <body: class="front-page"/>
+
+  <content:>
+    <header class="content-header">
+      <h1>Welcome to <app-name/></h1>
+      <section class="welcome-message">
+        <h3>Congratulations! Your Hobo Rails App is up and running</h3>
+        <ul>
+          <li>To customise this page: edit app/views/front/index.dryml</li>
+        </ul>
+      </section>
+    </header>
+
+    <section class="content-body">
+    </section>
+  </content:>
+  
+</page>
