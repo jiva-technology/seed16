@@ -4,13 +4,13 @@ I would like to invite you to <%= @event.title %>.
 
 For details of the event see <%= @event.website %>.
 
-Please accept the invitation by following this link <%= @accept_url %>. 
+<%= invitation_invite_url :host => @host, :key => @key %>
 
-<% if @further > 0 %>
-You will then be able to invite <%= @further %> further people.
-<% end %>
+To accept the invitation please follow this link: 
+<%= invitation_accept_url :host => @host, :key => @key %>
 
-If you have to decline the invitation follow this link <%= @decline_url %>.
+If you have to decline the invitation follow this link: 
+<%= invitation_decline_url :host => @host, :key => @key %>
 
 All the best
 --

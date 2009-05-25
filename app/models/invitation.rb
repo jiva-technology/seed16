@@ -16,25 +16,24 @@ class Invitation < ActiveRecord::Base
   
     state :invited, :accepted
   
-    create :invite, :params => [ :recipient ], :become => :invited,
-      :available_to => "User", :user_becomes => :sender do
-      InvitationMailer.send recipient, "#{sender.name} has invited you to..."
+    create :invite, :become => :invited, :params => [:event, :recipient],
+      :available_to => "User", :user_becomes => :sender, :new_key => true do
+      InvitationMailer.deliver_invite self
     end
   
-    transition :retract, { :invited => :destroy }, :available_to => :sender do
-      InvitationMailer.send recipient, "#{sender.name} has retracted your invitation. Too slow."
+    transition :retract, { :invited => :destroy }, 
+      :available_to => :sender do
+      InvitationMailer.deliver_retract self
     end
   
-    transition :accept, { :invited => :accepted }, :available_to => :recipient do
-      InvitationMailer.send sender, "#{recipient.name} has accepted your invitation. Hooray."
+    transition :accept, { :invited => :accepted },  
+      :available_to => :key_holder do
+      InvitationMailer.deliver_accept self
     end
   
-    transition :decline, { :invited => :destroy }, :available_to => :recipient do
-      InvitationMailer.send sender, "#{recpient.name} has declined your invitation. Boo."
-    end
-  
-    transition :decline, { :accepted => :destroy }, :available_to => :recipient do
-      InvitationMailer.send sender, "#{recipient.name} has declined your invitation after all. Boo."
+    transition :decline, { [:invited, :accepted] => :destroy }, 
+      :available_to => :key_holder do
+      InvitationMailer.deliver_decline self
     end
   
   end

@@ -26,7 +26,7 @@
 <def tag="invite-form" for="Invitation">
   <form lifecycle="invite">
     <error-messages param/>
-    <field-list fields="recipient" param/>
+    <field-list fields="event, recipient" param/>
     <div param="actions">
       <submit label="Invite" param/><or-cancel param="cancel"/>
     </div>
@@ -52,17 +52,6 @@
     <field-list fields="" param/>
     <div param="actions">
       <submit label="Accept" param/><or-cancel param="cancel"/>
-    </div>
-  </form>
-</def>
-<def tag="decline-form" polymorphic/>
-<def tag="decline-form" for="Invitation">
-  <form lifecycle="decline">
-    <error-messages param/>
-    <input type="hidden" name="key" value="&this.lifecycle.provided_key" if="&this.lifecycle.provided_key"/>
-    <field-list fields="" param/>
-    <div param="actions">
-      <submit label="Decline" param/><or-cancel param="cancel"/>
     </div>
   </form>
 </def>
